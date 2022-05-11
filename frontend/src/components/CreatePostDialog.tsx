@@ -30,6 +30,7 @@ export default function CreatePostDialog({ handleChange }: ICreatePostDialog) {
       image,
       likes: [],
     });
+    formik.resetForm();
   };
 
   const [open, setOpen] = React.useState(false);
@@ -49,6 +50,7 @@ export default function CreatePostDialog({ handleChange }: ICreatePostDialog) {
 
   const handleClose = () => {
     setOpen(false);
+    formik.resetForm();
   };
 
   return (
