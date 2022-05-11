@@ -1,0 +1,16 @@
+{
+  "localterra": {
+    "counter": {
+      "codeId": "1",
+      "contractAddresses": {
+        "default": "terra18vd8fpwxzck93qlwghaj6arh4p7c5n896xzem5"
+      }
+    },
+    "post_board": {
+      "codeId": "3",
+      "contractAddresses": {
+        "default": "terra18eezxhys9jwku67cm4w84xhnzt4xjj77w2qt62"
+      }
+    }
+  }
+}
