@@ -14,6 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import { useConnectedWallet } from "@terra-money/wallet-provider";
+import { useIPFS } from "../hooks/useIPFS";
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -69,12 +70,21 @@ export default function CustomizedAccordion({
   handleLike,
 }: ICustomizedAccordionProps) {
   const [expanded, setExpanded] = React.useState(false);
+  const [imageURL, setImageURL] = React.useState("");
   const theme = useTheme<Theme>();
   const connectedWallet = useConnectedWallet();
+  const { readFileAndCreateURL } = useIPFS();
 
   const isLiked = React.useMemo(() => {
     return post.likes.find((addr) => addr === connectedWallet?.terraAddress);
   }, [post, connectedWallet]);
+
+  React.useEffect(() => {
+    (async () => {
+      const url = await readFileAndCreateURL(post.image);
+      setImageURL(url);
+    })();
+  }, [post]);
 
   const handleChange =
     () => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -92,7 +102,10 @@ export default function CustomizedAccordion({
             <Typography variant="caption" sx={{ mb: 2 }}>
               Creator: {post?.user || "None"}
             </Typography>
-            <Typography variant="body2">{post.description}</Typography>
+            <img src={imageURL} alt={post.title} style={{ width: "60%" }} />
+            <Typography variant="body2" sx={{ mt: 2 }}>
+              {post.description}
+            </Typography>
           </Stack>
           <Stack>
             <IconButton
