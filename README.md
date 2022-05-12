@@ -5,7 +5,7 @@ Decentralized post board on Terra where users can create their posts with terra 
 ## Short Demo
 
 - ![Image](https://github.com/mastercodercat/terra-post-board/blob/master/resources/board.PNG)
-- ![Video](https://www.loom.com/share/abac2144b6d14e49ad7aa99b8cc57ad2)
+- [Video](https://www.loom.com/share/abac2144b6d14e49ad7aa99b8cc57ad2)
 
 ## Features
 
