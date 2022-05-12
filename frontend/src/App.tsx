@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   useWallet,
   useConnectedWallet,
   WalletStatus,
-} from "@terra-money/wallet-provider";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+} from '@terra-money/wallet-provider';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
-import * as execute from "./contract/execute";
-import * as query from "./contract/query";
-import ConnectWallet from "./components/ConnectWallet";
-import Accordion from "./components/Accordion";
-import PageLayout from "./layout/PageLayout";
-import CreatePostDialog from "./components/CreatePostDialog";
+import * as execute from './contract/execute';
+import * as query from './contract/query';
+import ConnectWallet from './components/ConnectWallet';
+import Accordion from './components/Accordion';
+import PageLayout from './layout/PageLayout';
+import CreatePostDialog from './components/CreatePostDialog';
 
-import { useSpinner } from "./providers/SpinnerProvider";
+import { useSpinner } from './providers/SpinnerProvider';
 
 function App() {
   const [posts, setPosts] = useState<Array<IPost>>([]);
@@ -33,7 +33,6 @@ function App() {
       if (connectedWallet) {
         const res = await query.getPosts(connectedWallet);
         setPosts(res.posts);
-        console.log(res);
       }
       setUpdating(false);
     };
@@ -62,7 +61,7 @@ function App() {
   return (
     <PageLayout>
       <Stack>
-        <Typography variant="h4" sx={{ textAlign: "center" }}>
+        <Typography variant="h4" sx={{ textAlign: 'center' }}>
           Decentralized Post Board
         </Typography>
         <Box sx={{ my: 3 }}>
